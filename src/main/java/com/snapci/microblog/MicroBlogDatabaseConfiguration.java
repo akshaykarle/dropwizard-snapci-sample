@@ -20,12 +20,18 @@ public class MicroBlogDatabaseConfiguration {
             URI dbUri = new URI(databaseUrl);
             String user = dbUri.getUserInfo().split(":")[0];
             String password = dbUri.getUserInfo().split(":")[1];
-            String url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+            String db = dbUri.getScheme();
             databaseConfiguration = new DatabaseConfiguration();
+            if (db.equals("postgres")) {
+                db = "postgresql";
+                databaseConfiguration.setDriverClass("org.postgresql.Driver");
+            } else if(db.equals("mysql")) {
+                databaseConfiguration.setDriverClass("com.mysql.jdbc.Driver");
+            }
+            String url = "jdbc:" + db + "://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
             databaseConfiguration.setUser(user);
             databaseConfiguration.setPassword(password);
             databaseConfiguration.setUrl(url);
-            databaseConfiguration.setDriverClass("org.postgresql.Driver");
         } catch (URISyntaxException e) {
             logger.info(e.getMessage());
         }

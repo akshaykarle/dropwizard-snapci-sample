@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class MicroBlogMapper implements ResultSetMapper<MicroBlog> {
     public MicroBlog map(int index, ResultSet r, StatementContext ctx) throws SQLException {
-        return new MicroBlog(r.getInt("id"), r.getInt("userId"), r.getString("content"));
+        return new MicroBlog(r.getInt("id"), r.getInt("userid"), r.getString("content"));
     }
 }
 

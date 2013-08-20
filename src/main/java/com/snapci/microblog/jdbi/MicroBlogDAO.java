@@ -8,14 +8,14 @@ import java.util.List;
 
 @RegisterMapper(MicroBlogMapper.class)
 public interface MicroBlogDAO {
-    @SqlUpdate("insert into \"microBlogs\" (\"userId\", content) values (:userId, :content)")
+    @SqlUpdate("insert into microblogs (userid, content) values (:userid, :content)")
     @GetGeneratedKeys
     int create(@BindBean MicroBlog microBlog);
 
-    @SqlQuery("select * from \"microBlogs\" where \"userId\" = :userId order by id desc")
-    List<MicroBlog> findAllByUserId(@Bind("userId") Integer userId);
+    @SqlQuery("select * from microblogs where userid = :userid order by id desc")
+    List<MicroBlog> findAllByUserId(@Bind("userid") Integer userId);
 
-    @SqlQuery("select * from \"microBlogs\" where id = :id")
+    @SqlQuery("select * from microblogs where id = :id")
     MicroBlog findById(@Bind("id") Integer id);
 
 }

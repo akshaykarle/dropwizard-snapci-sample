@@ -22,11 +22,11 @@
         </createIndex>
     </changeSet>
     <changeSet id="3" author="sahilm">
-        <createTable tableName="microBlogs">
+        <createTable tableName="microblogs">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="userId" type="bigint" autoIncrement="false">
+            <column name="userid" type="bigint" autoIncrement="false">
                 <constraints nullable="false"/>
             </column>
             <column name="content" type="varchar(140)">
