@@ -14,7 +14,6 @@ public class ErrorResponseTest {
 
     @Test
     public void testFromException() throws Exception {
-        assertTrue(false);
         Exception e = new Exception("Blew up");
         ErrorResponse errorResponse = ErrorResponse.fromException(e);
         Response response = errorResponse.build();
