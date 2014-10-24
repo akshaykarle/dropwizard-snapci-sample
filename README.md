@@ -3,9 +3,9 @@ dropwizard-snapci-sample
 
 Hit the ground running with Dropwizard and Snap
 
-# Setup:
+## Setup:
 
-* Run the unit tests and create the jar using
+* Run the unit tests and compile the jar into the target dir.
 
 ``` mvn test package ```
 
