@@ -14,7 +14,6 @@ public class ErrorResponseTest {
 
     @Test
     public void testFromException() throws Exception {
-        assertTrue(false);
         Exception e = new Exception("Blew up");
         ErrorResponse errorResponse = ErrorResponse.fromException(e);
         Response response = errorResponse.build();
@@ -23,7 +22,6 @@ public class ErrorResponseTest {
 
     @Test
     public void testFromExceptionWithUniqueConstraintViolation() throws Exception {
-        assertTrue(false);
         SQLException cause = new SQLException("Duplicate key", Constants.UNIQUE_VIOLATION_SQL_STATE, 23505);
         ErrorResponse errorResponse = ErrorResponse.fromException(new Exception(cause));
         Response response = errorResponse.build();
