@@ -40,7 +40,7 @@ public class SmokeIT {
 
     private String getAppUrl(String appUrl) {
         if (appUrl == null) {
-            return "http://localhost:8080/";
+            return "http://localhost:5000/";
         }
         if (appUrl.endsWith("/")) {
             return appUrl;
